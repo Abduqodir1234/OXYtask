@@ -3,13 +3,11 @@ import Navbar from "./Components/Navbar"
 import { BrowserRouter, Route,Switch } from "react-router-dom";
 import Products from "./Pages/products";
 import Search from "./Pages/search";
-import {useSelector} from "react-redux"
 import NotFound from "./Pages/404";
 function App() {
-  const token = useSelector(state=>state.main.token)
   return (
     <BrowserRouter>
-      <Navbar /><br/>
+      <Navbar /><br/> 
       <Switch>
         <Route exact path="/"><IndexPage /></Route>
         <Route exact path="/search"><Search /></Route>
