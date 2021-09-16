@@ -1,55 +1,24 @@
 import React, { useState } from "react";
 import {useSelector} from "react-redux"
 import { Redirect } from "react-router";
-import  {Table} from "antd"
+import  {Table} from "reactstrap"
+import TableRow from "../Components/TableRow";
 
 
 const dataSource = [
-    {
-      name: 'Olma ',
-    },
-    {
-      name: 'Anor',
-    },
-    {
-      name: 'Nok',
-    },
-    {
-        name: 'Banan',
-    },
-    {
-        name: 'Ananas',
-    },
-    {
-        name: 'Olcha',
-    },
-    {
-        name: 'Kivi',
-    },
-    {
-        name: 'Mango',
-    },
-    {
-        name: 'Papaya',
-    },
-    {
-        name: 'Kakao',
-    },
-
-    {
-        name: 'Kakos',
-    },
-
+    'Olma ',
+    'Anor',
+    'Nok',
+    'Banan',
+    'Ananas',
+    'Olcha',
+    'Kivi',
+    'Mango',
+    'Papaya',
+    'Kakao',
+    'Kakos',
   ];
   
-  const columns = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-    },
- 
-  ];
 
 
 const Search = ()=>{
@@ -61,13 +30,12 @@ const Search = ()=>{
         }
         else{
             let filtered = dataSource.filter(product=>{
-                if(product.name.toLowerCase().includes(text.toLowerCase())){
+                if(product.toLowerCase().includes(text.toLowerCase())){
                     console.log(product.name)
                     return product
                 }
             })
-            console.log(filtered);
-            setproducts(filtered)
+            setproducts(filtered.sort(function(a,b){return(a.indexOf(text.toLowerCase()) - b.indexOf(text.toLowerCase()))}))
         }
     }
     return (
@@ -76,7 +44,15 @@ const Search = ()=>{
         :
         <div className="container">
             <input type="search" className="form-control w-100 mb-4" placeholder="Search" onChange={(e)=>handleSearch(e.target.value)}  /><br/>
-            <Table dataSource={products} columns={columns} />
+            <Table>
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Product Name</th>
+                    </tr>
+                    </thead>
+                        {products?.length !==0 ? <tbody>{products.map((product,ind)=><TableRow key={product} id={ind}  name={product}  />)}</tbody> : <div className="alert">This page contains nothing</div>}
+                </Table>
         </div>
     )
 }
