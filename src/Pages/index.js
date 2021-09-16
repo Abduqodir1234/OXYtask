@@ -33,8 +33,13 @@ const IndexPage = (props) =>{
             openNotification("Success","You Logged in Successfully")
         })
         .catch(err=>{
+            
             openNotification("Error","Something went wrong")
         })
+      };
+    
+      const onFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
       };
      
     return(
