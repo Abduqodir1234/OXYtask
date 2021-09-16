@@ -17,7 +17,6 @@ const MainNavbar = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    typeof token !== "undefined" ?   
     <div>
       <Navbar  light expand="md" className="px-4">
         <NavbarBrand href="/">OXY TASK</NavbarBrand>
@@ -27,14 +26,15 @@ const MainNavbar = (props) => {
             <NavItem>
               <NavLink className="text-muted" to="/search">Search</NavLink>
             </NavItem>
+            {typeof token === "undefined" ? "" :
             <NavItem>
               <NavLink className="px-4 text-muted" to="/products">Products</NavLink>
             </NavItem>
+            }
           </Nav>
         </Collapse>
       </Navbar>
     </div>
-    :""
   );
 }
 

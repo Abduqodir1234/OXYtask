@@ -11,9 +11,7 @@ const IndexPage = (props) =>{
         notification[title.toLowerCase()]({
           message: title,
           description:description,
-          onClick: () => {
-            console.log('Notification Clicked!');
-          },
+
         });
       };
     const onFinish = (values) => {
@@ -35,13 +33,8 @@ const IndexPage = (props) =>{
             openNotification("Success","You Logged in Successfully")
         })
         .catch(err=>{
-            console.log("error",err);
             openNotification("Error","Something went wrong")
         })
-      };
-    
-      const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
       };
      
     return(

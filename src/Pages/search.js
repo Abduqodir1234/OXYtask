@@ -31,7 +31,6 @@ const Search = ()=>{
         else{
             let filtered = dataSource.filter(product=>{
                 if(product.toLowerCase().includes(text.toLowerCase())){
-                    console.log(product.name)
                     return product
                 }
             })
