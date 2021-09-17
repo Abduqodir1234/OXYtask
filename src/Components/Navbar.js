@@ -19,7 +19,7 @@ const MainNavbar = (props) => {
   return (
     <div>
       <Navbar  light expand="md" className="px-4">
-        <NavbarBrand href="/">OXY TASK</NavbarBrand>
+        <NavbarBrand href="/">OX TASK</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
