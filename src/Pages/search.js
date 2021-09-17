@@ -38,9 +38,6 @@ const Search = ()=>{
         }
     }
     return (
-        typeof token === "undefined" ? 
-        <Redirect to="/" />
-        :
         <div className="container">
             <input type="search" className="form-control w-100 mb-4" placeholder="Search" onChange={(e)=>handleSearch(e.target.value)}  /><br/>
             <Table>
